@@ -3,34 +3,25 @@
   <defs>
     <style>
       .cls-1 {
+        fill: #4a484a;
         stroke-miterlimit: 10;
       }
 
-      .cls-1, .cls-2, .cls-3 {
-        fill: none;
+      .cls-1, .cls-2 {
         stroke: #4a484a;
       }
 
       .cls-2 {
+        fill: none;
         stroke-linecap: round;
-      }
-
-      .cls-2, .cls-3 {
         stroke-miterlimit: 8;
-      }
-
-      .cls-3 {
-        stroke-linecap: square;
       }
     </style>
   </defs>
   <g id="Ebene_1-2" data-name="Ebene 1">
     <g>
-      <circle class="cls-1" cx="29.49" cy="29.49" r="28.99"/>
-      <g>
-        <rect class="cls-3" x="17.74" y="21.26" width="23.5" height="16.45"/>
-        <path class="cls-2" d="M17.74,21.26l11.75,10.58,11.75-10.58"/>
-      </g>
+      <path class="cls-1" d="M29.49.5C13.48.5.5,13.48.5,29.49s12.98,28.99,28.99,28.99,28.99-12.98,28.99-28.99S45.5.5,29.49.5ZM41.24,37.71h-23.5v-16.45h23.5v16.45Z"/>
+      <path class="cls-2" d="M17.74,21.26l11.75,10.58,11.75-10.58"/>
     </g>
   </g>
 </svg>
