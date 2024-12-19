@@ -23,7 +23,7 @@
   </head>
   <body>
     <a-scene 
-    mindar-image="imageTargetSrc: ./targets.mind; filterMinCF:0.015; filterBeta:85; missTolerance: 12;" 
+    mindar-image="imageTargetSrc: ./targets.mind; filterMinCF:0.0005; filterBeta: 0.1; missTolerance: 15;" 
     vr-mode-ui="enabled: false" 
     device-orientation-permission-ui="enabled: false" 
     showStats: true; 
@@ -33,7 +33,21 @@
       <a-assets>
         <a-asset-item id="carModel" src="2021_volkswagen_polo_plus/scene.gltf"></a-asset-item>
         <video id="WebMShowreel" src="ShowreelQ.mp4" loop="false" muted="true" playsinline></video>
+
+        <!--Icons-->
+
+        <img id="iconwebsite" src="icons/home_icon.svg" />
+        <img id="textwebsite" src="icons/home_text.svg" />
+
+        <img id="iconcontact" src="icons/contact_icon.svg" />
+        <img id="textcontact" src="icons/contact_text.svg" />
+
+        <img id="iconagency" src="icons/agency_icon.svg" />
+        <img id="textagency" src="icons/agency_text.svg" />
+
+        <img id="unmute" src="icons/unmute_icon.svg" />
         
+
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
@@ -45,31 +59,103 @@
           id="videoPlayer" 
           src="#WebMShowreel" 
           position="0 0 0.1" 
-          scale="0.5 0.5 0.5" 
+          scale="0.3 0.3 0.3" 
           rotation="0 0 0"
           animation__position="property: position; to: 0 0 0.1; dur: 2000; easing: easeInOutQuad; loop: false; dir: alternate; startEvents: startAnimation"
-          animation__scale="property: scale; to: 1 1 1; dur: 2000; easing: easeInOutQuad; loop: false; dir: alternate; startEvents: startAnimation"
+          animation__scale="property: scale; to: 0.5 0.5 0.5; dur: 2000; easing: easeInOutQuad; loop: false; dir: alternate; startEvents: startAnimation"
           width = "2,4"
           height = "1"
           muted="true"
           >
         </a-video>
 
-
+        <!-- VideoBackground -->
         <a-plane
-         id="button"
+        id="videoBackground"
+        position="0 -0.04 0.09"  
+        rotation="0 0 0"
+        scale="1.1 0.78 0.7"  
+        color="white"
+        material="shader: flat"
+        opacity="1">
+      </a-plane>
+
+        <!-- Icons -->
+        <a-image
+        id="button"
          class="clickable"
-         position="1.18 0 0.2"
+         src="#iconwebsite"
+         position="0 -0.31 0.1"
          rotation="0 0 0"
-         scale="0.4 0.4 0.4"
-         color="blue"
+         scale="0.11 0.11 0.11"
          opacity="0.8"
          material="shader: flat"
-         text="value: Visit Website; align: center; color: white; width: 3.5"
-        ></a-plane>
+        ></a-image>
+        <a-image
+        id="button"
+         class="clickable"
+         src="#textwebsite"
+         position="0 -0.39 0.1"
+         rotation="0 0 0"
+         scale="0.15 0.013 0.15"
+         opacity="0.8"
+         material="shader: flat"
+        ></a-image>
+
+        <a-image
+        id="button2"
+         class="clickable"
+         src="#iconcontact"
+         position="0.2 -0.31 0.1"
+         rotation="0 0 0"
+         scale="0.11 0.11 0.11"
+         opacity="0.8"
+         material="shader: flat"
+        ></a-image>
+        <a-image
+        id="button2"
+         class="clickable"
+         src="#textcontact"
+         position="0.2 -0.39 0.1"
+         rotation="0 0 0"
+         scale="0.15 0.013 0.15"
+         opacity="0.8"
+         material="shader: flat"
+        ></a-image>
 
 
+        <a-image
+        id="button3"
+         class="clickable"
+         src="#iconagency"
+         position="0.4 -0.31 0.1"
+         rotation="0 0 0"
+         scale="0.11 0.11 0.11"
+         opacity="0.8"
+         material="shader: flat"
+        ></a-image>
+        <a-image
+        id="button3"
+         class="clickable"
+         src="#textagency"
+         position="0.4 -0.39 0.1"
+         rotation="0 0 0"
+         scale="0.15 0.013 0.15"
+         opacity="0.8"
+         material="shader: flat"
+        ></a-image>
 
+
+        <a-image
+        id="unmuteButton"
+         class="clickable"
+         src="#unmute"
+         position="0.4 0.3 0.1"
+         rotation="0 0 0"
+         scale="0.09 0.09 0.09"
+         opacity="0.8"
+         material="shader: flat"
+        ></a-image>
 
       </a-entity>
       <a-entity cursor="rayOrigin: mouse"></a-entity>
@@ -111,6 +197,33 @@ examplePlane.addEventListener("click", event => {
   console.log("plane click");
   window.open("https://www.elsterkind.de/", "_blank");
 });
+
+const button2 = document.querySelector('#button2');
+button2.addEventListener("click", event => {
+  console.log("plane click");
+  window.open("https://www.elsterkind.de/kontakt", "_blank");
+});
+
+const button3 = document.querySelector('#button3');
+button3.addEventListener("click", event => {
+  console.log("plane click");
+  window.open("https://www.elsterkind.de/ueber-uns/?gt=office", "_blank");
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const videoEl = document.querySelector('#WebMShowreel');
+    const unmuteButton = document.querySelector('#unmuteButton');
+
+    unmuteButton.addEventListener('click', () => {
+      videoEl.muted = false; // Unmute the video
+      console.log('Video unmuted');
+
+      // Optionally hide the button after unmuting
+      unmuteButton.setAttribute('visible', 'false');
+    });
+  });
+
 
 
     </script>
