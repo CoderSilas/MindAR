@@ -52,7 +52,12 @@
         
       </a-assets>
 
-      <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
+      <a-camera 
+      position="0 0 0" 
+      look-controls="enabled: false" 
+      cursor="fuse: false; rayOrigin: mouse;" 
+      raycaster="far: ${customFields.libVersion}; objects: .clickable"
+      ></a-camera>
 
 
       <a-entity mindar-image-target="targetIndex: 0" id="imageTarget">
@@ -64,14 +69,14 @@
           scale="0.3 0.3 0.3" 
           rotation="0 0 0"
           animation__position="property: position; to: 0 0 0.1; dur: 2000; easing: easeInOutQuad; loop: false; dir: alternate; startEvents: startAnimation"
-          animation__scale="property: scale; to: 0.6 0.6 0.6; dur: 2000; easing: easeInOutQuad; loop: false; dir: alternate; startEvents: startAnimation"
+          animation__scale="property: scale; to: 0.65 0.65 0.65; dur: 2000; easing: easeInOutQuad; loop: false; dir: alternate; startEvents: startAnimation"
           width = "1.546"
           height = "1"
           muted="true"
           >
         </a-video>
 
-        <!-- VideoBackground -->
+        <!-- VideoBackground 
         <a-plane
         id="videoBackground"
         position="0 -0.08 0.04"  
@@ -81,13 +86,13 @@
         material="shader: flat"
         opacity="1">
       </a-plane>
-
+        -->
         <!-- Icons -->
         <a-image
         id="button"
          class="clickable"
          src="#iconwebsite"
-         position="0.1 -0.36 0.08"
+         position="0.1 -0.38 0.08"
          rotation="0 0 0"
          scale="0.09 0.09 0.09"
          opacity="0.8"
@@ -97,7 +102,7 @@
         id="button"
          class="clickable"
          src="#textwebsite"
-         position="0.1 -0.43 0.08"
+         position="0.1 -0.45 0.08"
          rotation="0 0 0"
          scale="0.1 0.013 0.15"
          opacity="0.8"
@@ -108,7 +113,7 @@
         id="button2"
          class="clickable"
          src="#iconcontact"
-         position="0.23 -0.36 0.08"
+         position="0.23 -0.38 0.08"
          rotation="0 0 0"
          scale="0.09 0.09 0.09"
          opacity="0.8"
@@ -118,7 +123,7 @@
         id="button2"
          class="clickable"
          src="#textcontact"
-         position="0.23 -0.43 0.08"
+         position="0.23 -0.45 0.08"
          rotation="0 0 0"
          scale="0.1 0.013 0.15"
          opacity="0.8"
@@ -130,7 +135,7 @@
         id="button3"
          class="clickable"
          src="#iconagency"
-         position="0.36 -0.36 0.08"
+         position="0.36 -0.38 0.08"
          rotation="0 0 0"
          scale="0.09 0.09 0.09"
          opacity="0.8"
@@ -140,7 +145,7 @@
         id="button3"
          class="clickable"
          src="#textagency"
-         position="0.36 -0.43 0.08"
+         position="0.36 -0.45 0.08"
          rotation="0 0 0"
          scale="0.1 0.013 0.15"
          opacity="0.8"
@@ -152,7 +157,7 @@
         id="unmuteButton"
          class="clickable"
          src="#unmute"
-         position="0.38 0.27 0.12"
+         position="0.38 0.28 0.12"
          rotation="0 0 0"
          scale="0.06 0.06 0.06"
          opacity="0.8"
@@ -163,11 +168,12 @@
         id="muteButton"
         class="clickable"
         src="#mute"
-        position="0.38 0.27 0.12"
+        position="0.38 0.28 0.12"
         rotation="0 0 0"
         scale="0.06 0.06 0.06"
         opacity="0.8"
         material="shader: flat"
+        visible="false"
       ></a-image>
 
       <a-image
